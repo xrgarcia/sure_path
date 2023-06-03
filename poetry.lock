@@ -65,6 +65,14 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
+name = "python-statemachine"
+version = "2.0.0"
+description = "Python Finite State Machines made easy."
+category = "main"
+optional = false
+python-versions = ">=3.7,<3.12"
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -74,8 +82,8 @@ python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "c600f48221b1a9a2e4bf2936aa4c79cc2b01cf45cf2b667cb04bc505d4573fa8"
+python-versions = "3.10"
+content-hash = "a9f1527766e4edaa6bcd1492759b3cc9dafbafd699a591334031de4161211790"
 
 [metadata.files]
 colorama = []
@@ -87,6 +95,7 @@ pluggy = [
     {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
 ]
 pytest = []
+python-statemachine = []
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
