@@ -1,6 +1,6 @@
 from statemachine import StateMachine, State
 
-class DeviceDeploymentStateMachine(StateMachine):
+class NetworkDeviceOsUpgradeStateMachine(StateMachine):
     "A traffic light machine"
     ready = State(initial=True)
     change_created = State()

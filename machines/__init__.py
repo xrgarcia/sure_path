@@ -1,1 +1,1 @@
-from machines.device_deployment_state_machine import DeviceDeploymentStateMachine
+from machines.network_device_os_upgrade_state_machine import NetworkDeviceOsUpgradeStateMachine

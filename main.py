@@ -1,6 +1,6 @@
-from machines import DeviceDeploymentStateMachine
+from machines import NetworkDeviceOsUpgradeStateMachine
 
-sm = DeviceDeploymentStateMachine()
+sm = NetworkDeviceOsUpgradeStateMachine()
 print(f"-----------{sm.current_state.name}--------")
 print(f"current state: {sm}")
 
@@ -39,7 +39,7 @@ sm.next()
 print(f"\n\n-----------{sm.current_state.name}--------")
 print(f"current state: {sm}")
 
-is_back_to_ready = (sm.current_state == DeviceDeploymentStateMachine.ready)
+is_back_to_ready = (sm.current_state == NetworkDeviceOsUpgradeStateMachine.ready)
 print(f"back to ready: {is_back_to_ready}")
 print(f"ready state is active: {sm.ready.is_active}")
 
