@@ -1,2 +1,3 @@
 pyproject.toml
 .idea
+machines/__pycache__
