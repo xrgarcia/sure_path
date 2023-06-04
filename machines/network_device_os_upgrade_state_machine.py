@@ -1,7 +1,7 @@
 from statemachine import StateMachine, State
 
 class NetworkDeviceOsUpgradeStateMachine(StateMachine):
-    "A traffic light machine"
+    "A network device os upgrade state machine"
     ready = State(initial=True)
     change_created = State()
     change_approved = State()
