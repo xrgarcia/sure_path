@@ -1,1 +1,1 @@
-from machines.os_upgrade_state_machine import OsUpgradeStateMachine
+from machines.device_deployment_state_machine import DeviceDeploymentStateMachine
