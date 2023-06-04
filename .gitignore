@@ -1,3 +1,4 @@
 pyproject.toml
 .idea
 machines/__pycache__
+sure_path_models/__pycache__

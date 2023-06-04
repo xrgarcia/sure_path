@@ -6,10 +6,8 @@ class RaiseChangeStateMachine(StateMachine):
     waiting_for_change_number = State(initial=True)
     change_created = State(final=True)
 
-    change_number_requested = waiting_for_change_number.to(waiting_for_change_number)
-    change_number_received = (waiting_for_change_number.to(change_created, cond="has_change_number")
+    change_number_requested = (waiting_for_change_number.to(change_created, cond="has_change_number")
                              | waiting_for_change_number.to(waiting_for_change_number, unless="has_change_number"))
-    change_raised = waiting_for_change_number.to(change_created,cond="has_change_number")
 
     def __init__(self):
         self.change_request: ChangeRequest= None
