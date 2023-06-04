@@ -1,2 +1,2 @@
 from machines.network_device_os_upgrade_state_machine import NetworkDeviceOsUpgradeStateMachine
-from machines.change_record_state_machine import RaiseChangeStateMachine
+from machines.change_creation_state_machine import RaiseChangeStateMachine
