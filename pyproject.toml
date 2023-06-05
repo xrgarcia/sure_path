@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "sure_path"
+version = "0.1.0"
+description = "python package to help implement a state machine specific for network automation projects"
+authors = ["Ray Garcia <ray@slashbin.us>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "3.10"
+python-statemachine = "^2.0.0"
+pydantic = "^1.10.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
