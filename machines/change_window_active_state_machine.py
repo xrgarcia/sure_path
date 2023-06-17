@@ -11,12 +11,13 @@ class ChangeWindowActiveStateMachine(StateMachine):
     CHANGE_WINDOW_STARTED = State()
     CHANGE_WINDOW_END = State(final=True)
 
-    change_window_open = (WAITING_FOR_CHANGE_WINDOW.to(CHANGE_WINDOW_STARTED, cond="is_within_change_window")
-                                 | WAITING_FOR_CHANGE_WINDOW.to(WAITING_FOR_CHANGE_WINDOW,
-                                                                  unless="is_within_change_window"))
-    change_window_closed = (CHANGE_WINDOW_STARTED.to(CHANGE_WINDOW_STARTED, cond="is_within_change_window")
-                                 | CHANGE_WINDOW_STARTED.to(CHANGE_WINDOW_END,
-                                                                  unless="is_within_change_window"))
+    cycle = (WAITING_FOR_CHANGE_WINDOW.to(CHANGE_WINDOW_STARTED, cond="is_within_change_window")
+                          | WAITING_FOR_CHANGE_WINDOW.to(WAITING_FOR_CHANGE_WINDOW,
+                                                         unless="is_within_change_window")
+                          | CHANGE_WINDOW_STARTED.to(CHANGE_WINDOW_STARTED, cond="is_within_change_window")
+                          | CHANGE_WINDOW_STARTED.to(CHANGE_WINDOW_END,
+                                                     unless="is_within_change_window")
+                          )
 
     def __init__(self, change_request: ChangeRequest):
         self.change_request: ChangeRequest = change_request
@@ -29,7 +30,7 @@ class ChangeWindowActiveStateMachine(StateMachine):
 
         if ready:
             now = datetime.datetime.now()
-            within_window = (now >= self.change_request.start_time and now < self.change_request.end_time)
+            within_window = (self.change_request.start_time <= now < self.change_request.end_time)
             return within_window
 
         return False

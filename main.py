@@ -43,14 +43,14 @@ def run_simulated_waiting_for_change_window():
     while True:
         print(f"Checking Change Window: {datetime.now()}, {change_request.json()}")
         if change_window_sm.current_state == change_window_sm.WAITING_FOR_CHANGE_WINDOW:
-            change_window_sm.change_window_open()
+            change_window_sm.cycle()
             print("Waiting for change window to start: sleeping 10 secs")
             time.sleep(10)
         elif change_window_sm.current_state == change_window_sm.CHANGE_WINDOW_STARTED:
             print(f"---------------change window started----------------")
             print(f"current time {datetime.now()}")
             print(f"{change_request}")
-            change_window_sm.change_window_closed()
+            change_window_sm.cycle()
             print("Hurry UP! Do your job! You only have a min of the change window!")
             time.sleep(10)
         elif change_window_sm.current_state == change_window_sm.CHANGE_WINDOW_END:
